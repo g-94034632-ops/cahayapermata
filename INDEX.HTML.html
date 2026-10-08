@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <!-- TAG VIEWPORT KHAS UNTUK GOOGLE SITES & MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kembara Wira Cilik - Kelas Cikgu Izyanti BARSA</title>
+  <style>
+    :root {
+      --primary: #1E3A8A;
+      --secondary: #F59E0B;
+      --success: #10B981;
+      --danger: #EF4444;
+      --accent: #8B5CF6;
+      --bg: #F0FDF4;
+      --card-bg: #FFFFFF;
+      --text: #1F2937;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Comic Sans MS', 'Fredoka', 'Quicksand', 'Arial Rounded MT Bold', sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    body {
+      padding: clamp(6px, 1.5vw, 15px);
+      background: linear-gradient(135deg, #ECFDF5 0%, #EFF6FF 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* KONTENA FLEKSIBEL UNTUK IFRAME GOOGLE SITES */
+    .container {
+      width: 100%;
+      max-width: 950px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: clamp(16px, 3vw, 30px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      border: clamp(3px, 0.8vw, 5px) solid #FDE047;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 50%, #059669 100%);
+      padding: clamp(14px, 3vw, 24px) 12px;
+      text-align: center;
+      color: white;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .school-logo {
+      width: clamp(80px, 14vw, 110px);
+      height: clamp(80px, 14vw, 110px);
+      object-fit: contain;
+      background: white;
+      border-radius: 50%;
+      padding: 4px;
+      border: 4px solid #FBBF24;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .welcome-banner {
+      background: #FEF08A;
+      color: #854D0E;
+      padding: 6px clamp(12px, 3vw, 22px);
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+      border: 2px dashed #CA8A04;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 4px 0 0 0;
+      font-size: clamp(1.4rem, 4vw, 2.1rem);
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .user-pill {
+      background: rgba(255,255,255,0.22);
+      border: 2px solid rgba(255,255,255,0.45);
+      padding: 6px clamp(12px, 3vw, 20px);
+      border-radius: 20px;
+      font-size: clamp(0.85rem, 2vw, 1.05rem);
+      font-weight: bold;
+      backdrop-filter: blur(4px);
+      word-break: break-word;
+    }
+
+    /* NAV TABS */
+    .nav-tabs {
+      display: flex;
+      background: #E2E8F0;
+      border-bottom: 3px solid #CBD5E1;
+      width: 100%;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: clamp(10px, 2vw, 16px) 6px;
+      border: none;
+      background: none;
+      font-size: clamp(0.85rem, 2.2vw, 1.12rem);
+      font-weight: 800;
+      color: #64748B;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .tab-btn.active {
+      background: white;
+      color: #1E3A8A;
+      border-bottom: 4px solid #2563EB;
+    }
+
+    .tab-content {
+      padding: clamp(12px, 2.5vw, 25px);
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* PROFIL */
+    .profile-card {
+      max-width: 480px;
+      margin: 15px auto;
+      text-align: center;
+      background: #FEFCE8;
+      border-radius: 22px;
+      border: 3px dashed #EAB308;
+      padding: clamp(18px, 4vw, 30px);
+    }
+
+    .input-box {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .input-box label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: clamp(1rem, 2.4vw, 1.15rem);
+      color: #713F12;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: 3px solid #FDE047;
+      border-radius: 12px;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      outline: none;
+    }
+
+    .btn-adventure {
+      background: linear-gradient(180deg, #10B981, #059669);
+      color: white;
+      border: none;
+      padding: 14px clamp(25px, 5vw, 42px);
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      font-weight: 900;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #047857;
+      transition: 0.1s;
+    }
+
+    /* SUB NAV */
+    .sub-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .zone-btn {
+      padding: 8px clamp(10px, 2vw, 16px);
+      border-radius: 18px;
+      border: 2px solid #CBD5E1;
+      background: white;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+      transition: 0.2s;
+    }
+
+    .zone-btn.active {
+      background: #2563EB;
+      color: white;
+      border-color: #1D4ED8;
+      transform: scale(1.03);
+    }
+
+    .mission-section {
+      display: none;
+    }
+
+    .mission-section.active {
+      display: block;
+    }
+
+    .zone-banner {
+      background: #E0F2FE;
+      border-left: 5px solid #0284C7;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      font-size: clamp(0.95rem, 2.3vw, 1.2rem);
+      font-weight: bold;
+      color: #0369A1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* KAD SOALAN */
+    .q-card {
+      background: #F8FAFC;
+      border: 2px solid #E2E8F0;
+      border-radius: 16px;
+      padding: clamp(12px, 2vw, 20px);
+      margin-bottom: 16px;
+      position: relative;
+      text-align: center;
+    }
+
+    .q-title {
+      font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #1E293B;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .q-img {
+      width: min(150px, 45vw);
+      height: min(150px, 45vw);
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid #38BDF8;
+      margin: 4px auto 14px auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: #FFFFFF;
+    }
+
+    /* GRID TIGA PILIHAN JAWAPAN (KIRI, TENGAH, KANAN) */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(6px, 1.5vw, 12px);
+      width: 100%;
+    }
+
+    .opt-btn {
+      width: 100%;
+      padding: clamp(10px, 2vw, 14px) 4px;
+      background: white;
+      border: 2px solid #CBD5E1;
+      border-radius: 12px;
+      font-size: clamp(0.95rem, 2.3vw, 1.2rem);
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #334155;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    .opt-btn:hover {
+      background: #F0F9FF;
+      border-color: #38BDF8;
+    }
+
+    .opt-btn.correct {
+      background: #DCFCE7 !important;
+      border-color: #22C55E !important;
+      color: #14532D !important;
+    }
+
+    .opt-btn.wrong {
+      background: #FEE2E2 !important;
+      border-color: #EF4444 !important;
+      color: #7F1D1D !important;
+    }
+
+    /* PADANAN SUKU KATA KVKK */
+    .matching-box {
+      background: #FFFBEB;
+      border: 3px solid #FCD34D;
+    }
+
+    .syllable-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(6px, 1.5vw, 12px);
+      margin: 10px 0 16px 0;
+      font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      font-weight: 900;
+      flex-wrap: wrap;
+    }
+
+    .first-syllable {
+      background: #3B82F6;
+      color: white;
+      padding: 8px clamp(14px, 3vw, 22px);
+      border-radius: 12px;
+      box-shadow: 0 3px 0 #1D4ED8;
+    }
+
+    .target-slot {
+      background: #E2E8F0;
+      color: #475569;
+      padding: 8px clamp(14px, 3vw, 22px);
+      border-radius: 12px;
+      border: 3px dashed #94A3B8;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .target-slot.filled {
+      background: #10B981;
+      color: white;
+      border: 3px solid #059669;
+    }
+
+    /* KOTAK BUTANG DI AKHIR MISI */
+    .submit-zone-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 25px auto 10px auto;
+      padding: 5px;
+    }
+
+    .btn-hantar-skor {
+      background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 14px clamp(25px, 6vw, 42px);
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 900;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #047857;
+      letter-spacing: 1px;
+    }
+
+    .btn-seterusnya {
+      background: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+      color: white;
+      border: none;
+      padding: 14px clamp(25px, 6vw, 42px);
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 900;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #1E40AF;
+      letter-spacing: 1px;
+    }
+
+    .btn-hantar-keseluruhan {
+      background: linear-gradient(180deg, #F59E0B 0%, #D97706 100%);
+      color: white;
+      border: 3px solid #FEF08A;
+      padding: 16px clamp(22px, 5vw, 42px);
+      font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+      font-weight: 900;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 0 #B45309;
+      letter-spacing: 1px;
+      animation: pulseGlow 1.8s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.03); }
+    }
+
+    /* AIR SLICE */
+    .air-slice-container {
+      background: #F0F9FF;
+      border: 3px solid #38BDF8;
+      border-radius: 20px;
+      padding: clamp(10px, 2vw, 20px);
+      text-align: center;
+      width: 100%;
+    }
+
+    .slice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #E0F2FE;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      color: #0369A1;
+      font-size: clamp(0.9rem, 2.2vw, 1.15rem);
+      margin-bottom: 12px;
+    }
+
+    .slice-target-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .slice-word-box {
+      font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+      font-weight: 900;
+      color: #1E3A8A;
+      background: white;
+      padding: 6px clamp(16px, 4vw, 28px);
+      border-radius: 16px;
+      border: 2px solid #38BDF8;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    .slice-arena {
+      position: relative;
+      width: 100%;
+      height: clamp(230px, 40vh, 290px);
+      background: radial-gradient(circle at center, #E0F2FE 0%, #BAE6FD 60%, #7DD3FC 100%);
+      border: 3px dashed #0284C7;
+      border-radius: 18px;
+      overflow: hidden;
+      touch-action: none;
+      user-select: none;
+      cursor: crosshair;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 6px;
+    }
+
+    .slice-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .water-bubble {
+      width: clamp(80px, 22vw, 110px);
+      height: clamp(95px, 26vw, 125px);
+      background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #67E8F9 45%, #06B6D4 80%, #0891B2 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+      font-weight: 900;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 8px 18px rgba(6, 182, 212, 0.4);
+      animation: waterFloat 2.6s ease-in-out infinite alternate;
+      z-index: 5;
+    }
+
+    .water-bubble:nth-child(2) { animation-delay: 0.4s; }
+    .water-bubble:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes waterFloat {
+      0% { transform: translateY(8px) rotate(-3deg); }
+      100% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .water-bubble.sliced-correct {
+      animation: splashSlice 0.6s forwards !important;
+      pointer-events: none;
+    }
+
+    @keyframes splashSlice {
+      0% { transform: scale(1.1); filter: brightness(1.4); }
+      50% { transform: scale(1.3) rotate(15deg); opacity: 0.8; }
+      100% { transform: scale(0.2) translateY(-40px); opacity: 0; }
+    }
+
+    .water-bubble.sliced-wrong {
+      background: radial-gradient(circle at 35% 30%, #FECDD3 0%, #FB7185 60%, #E11D48 100%) !important;
+      animation: shakeWrong 0.4s ease !important;
+    }
+
+    @keyframes shakeWrong {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    /* KAD SUSUN AYAT */
+    .word-pool, .drop-area {
+      min-height: 55px;
+      padding: 10px;
+      background: white;
+      border-radius: 12px;
+      border: 2px dashed #94A3B8;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .drop-area {
+      background: #EFF6FF;
+      border: 2px solid #60A5FA;
+    }
+
+    .word-chip {
+      padding: 8px 14px;
+      background: #FDE047;
+      color: #713F12;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+      cursor: pointer;
+      box-shadow: 0 2px 0 #CA8A04;
+    }
+
+    .btn-semak {
+      background: #2563EB;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .story-card {
+      background: #FEF9C3;
+      border: 2px solid #FACC15;
+      padding: clamp(12px, 3vw, 18px);
+      border-radius: 14px;
+      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #713F12;
+      text-align: left;
+    }
+
+    /* MODAL POPUP */
+    .score-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.65);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 24px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      padding: clamp(20px, 4vw, 32px);
+      border: 5px solid #FBBF24;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-score {
+      font-size: clamp(1.8rem, 5vw, 2.3rem);
+      font-weight: 900;
+      color: #D97706;
+      margin: 12px 0;
+    }
+
+    .btn-modal-next {
+      background: linear-gradient(180deg, #3B82F6, #1D4ED8);
+      color: white;
+      border: none;
+      padding: 12px clamp(25px, 5vw, 36px);
+      font-size: clamp(1.1rem, 2.4vw, 1.25rem);
+      font-weight: bold;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #1E40AF;
+      margin-top: 10px;
+    }
+
+    .grand-modal-box {
+      background: #FFFBEB;
+      border-radius: 24px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      text-align: center;
+      padding: clamp(16px, 3.5vw, 28px);
+      border: 5px solid #F59E0B;
+    }
+
+    .grand-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .grand-table th {
+      background: #1E3A8A;
+      color: white;
+      padding: 8px 6px;
+    }
+
+    .grand-table td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #E2E8F0;
+      font-weight: bold;
+      color: #334155;
+    }
+
+    .grand-total-box {
+      background: #FEF08A;
+      border: 2px dashed #CA8A04;
+      padding: 12px;
+      border-radius: 14px;
+      font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+      font-weight: 900;
+      color: #854D0E;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <img src="https://res.cloudinary.com/mtekljwt/image/upload/v1791417684/logo_transparent_p7ivod.png" alt="Logo SK Bandar Seri Alam BARSA" class="school-logo">
+      <div class="welcome-banner">✨ Selamat datang ke kelas Cikgu Izyanti BARSA ✨</div>
+      <h1>🗺️ KEMBARA WIRA CILIK</h1>
+      <div class="user-pill" id="badgePengembara">Pendaftaran Pengembara Diperlukan 🧭</div>
+    </div>
+  </header>
+
+  <!-- TAB NAVIGASI -->
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="bukaTabUtama('tab-profil')">👤 Pasport Misi</button>
+    <button class="tab-btn" onclick="bukaTabUtama('tab-bm')">🌴 Kembara B. Melayu</button>
+    <button class="tab-btn" onclick="bukaTabUtama('tab-math')">🔢 Kembara Matematik</button>
+  </nav>
+
+  <!-- TAB 1: PROFIL -->
+  <div id="tab-profil" class="tab-content active">
+    <div class="profile-card">
+      <div style="font-size: clamp(2.5rem, 7vw, 4rem);">🧭📜</div>
+      <h2 style="color: #854D0E; margin-top: 5px; font-size: clamp(1.3rem, 3vw, 1.8rem);">Pasport Pengembara Cilik</h2>
+      <p style="font-size: clamp(0.95rem, 2.2vw, 1.1rem); color: #A16207;">Sila isi maklumat anda untuk memulakan cabaran!</p>
+      
+      <div class="input-box">
+        <label>Nama Pengembara:</label>
+        <input type="text" id="namaInput" placeholder="Taip nama penuh murid...">
+      </div>
+
+      <div class="input-box">
+        <label>Kelas:</label>
+        <input type="text" id="kelasInput" placeholder="Contoh: 2 Mawar / Pemulihan 1">
+      </div>
+
+      <button class="btn-adventure" onclick="daftarWira()">MULAKAN PENGEMBARAAN! 🚀</button>
+    </div>
+  </div>
+
+  <!-- TAB 2: BAHASA MELAYU -->
+  <div id="tab-bm" class="tab-content">
+    <div class="sub-nav">
+      <button class="zone-btn active" onclick="tukarZonBM(0)">Zon 1: KVKV (10)</button>
+      <button class="zone-btn" onclick="tukarZonBM(1)">Zon 2: Kata Tertutup (10)</button>
+      <button class="zone-btn" onclick="tukarZonBM(2)">Zon 3: Gua KVKK (10)</button>
+      <button class="zone-btn" onclick="tukarZonBM(3)">Zon 4: Air Slice (10)</button>
+      <button class="zone-btn" onclick="tukarZonBM(4)">Zon 5: Cerita (5)</button>
+      <button class="zone-btn" onclick="tukarZonBM(5)">Zon 6: Ayat (5)</button>
+    </div>
+
+    <!-- BM 1: KVKV -->
+    <div class="mission-section active" id="bm-zon-0">
+      <div class="zone-banner"><span>🏕️ Zon 1: Lembah KVKV</span><span>10 Misi</span></div>
+      <div id="bm-kvkv-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm0')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm0')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- BM 2: KATA TERTUTUP -->
+    <div class="mission-section" id="bm-zon-1">
+      <div class="zone-banner"><span>🌲 Zon 2: Rimba Kata Tertutup</span><span>10 Misi</span></div>
+      <div id="bm-tertutup-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm1')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm1')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- BM 3: GUA KVKK -->
+    <div class="mission-section" id="bm-zon-2">
+      <div class="zone-banner"><span>⛰️ Zon 3: Gua KVKK (Padanan Suku Kata)</span><span>10 Misi</span></div>
+      <div id="bm-kvkk-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm2')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm2')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- BM 4: AIR SLICE DIFTONG -->
+    <div class="mission-section" id="bm-zon-3">
+      <div class="zone-banner">
+        <span>🌊 Zon 4: Pesisir Diftong (Air Slice)</span>
+        <span>⚔️ Hiris Titisan Air!</span>
+      </div>
+      
+      <div class="air-slice-container">
+        <div class="slice-header">
+          <span id="sliceMissionNumber">Misi 1 daripada 10</span>
+          <span>Bintang Zon: <span id="sliceZoneStars">0</span>/10 ⭐</span>
+        </div>
+
+        <div class="slice-target-display">
+          <img id="sliceTargetImg" src="" class="q-img" alt="Objek Diftong">
+          <div style="font-size: clamp(0.95rem, 2.3vw, 1.15rem); color: #475569; font-weight: bold;">
+            ⚔️ Leretkan jari / klik laju untuk <strong>HIRIS</strong> titisan air diftong yang betul!
+          </div>
+          <div class="slice-word-box" id="sliceWordDisplay">t u p _ _</div>
+        </div>
+
+        <div class="slice-arena" id="sliceArena">
+          <canvas class="slice-canvas" id="sliceCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm3')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm3')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- BM 5: PEMAHAMAN -->
+    <div class="mission-section" id="bm-zon-4">
+      <div class="zone-banner"><span>🏰 Zon 5: Istana Cerita & Pemahaman</span><span>5 Misi</span></div>
+      <div class="story-card">
+        <h3>🐈 Cerita: Kucing Comel Pak Ali</h3>
+        <p>Pak Ali ada seekor kucing gebu bernama <strong>Si Comel</strong>. Bulu Si Comel sangat bersih dan berwarna <strong>putih</strong>. Si Comel sangat suka makan <strong>ikan goreng</strong> dan minum <strong>susu segar</strong>. Setiap waktu petang, Si Comel gemar <strong>mengejar bola getah</strong> di halaman rumah Pak Ali dengan riang.</p>
+      </div>
+      <div id="bm-cerita-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm4')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm4')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- BM 6: SUSUN AYAT -->
+    <div class="mission-section" id="bm-zon-5">
+      <div class="zone-banner"><span>🌉 Zon 6: Jambatan Susun Ayat</span><span>5 Misi</span></div>
+      <p style="font-weight: bold; color: #475569; text-align: center; font-size: clamp(0.9rem, 2vw, 1.05rem);">👉 Klik kad perkataan untuk susun mengikut urutan ayat yang betul:</p>
+      <div id="bm-susun-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('bm5')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('bm5')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: MATEMATIK -->
+  <div id="tab-math" class="tab-content">
+    <div class="sub-nav">
+      <button class="zone-btn active" onclick="tukarZonMath(0)">Zon 1: Nombor (10)</button>
+      <button class="zone-btn" onclick="tukarZonMath(1)">Zon 2: Tambah (10)</button>
+      <button class="zone-btn" onclick="tukarZonMath(2)">Zon 3: Tolak (10)</button>
+    </div>
+
+    <!-- MATH 1 -->
+    <div class="mission-section active" id="math-zon-0">
+      <div class="zone-banner"><span>🔢 Zon 1: Bukit Nombor Hingga 50</span><span>10 Misi</span></div>
+      <div id="math-nombor-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('math0')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('math0')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- MATH 2 -->
+    <div class="mission-section" id="math-zon-1">
+      <div class="zone-banner"><span>➕ Zon 2: Air Terjun Menambah Hingga 50</span><span>10 Misi</span></div>
+      <div id="math-tambah-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('math1')">HANTAR</button>
+        <button class="btn-seterusnya" onclick="misiSeterusnya('math1')">SETERUSNYA ➡️</button>
+      </div>
+    </div>
+
+    <!-- MATH 3 (AKHIR MISI) -->
+    <div class="mission-section" id="math-zon-2">
+      <div class="zone-banner"><span>➖ Zon 3: Puncak Menolak Hingga 50</span><span>10 Misi</span></div>
+      <div id="math-tolak-box"></div>
+      <div class="submit-zone-box">
+        <button class="btn-hantar-skor" onclick="hantarSkorMisi('math2')">HANTAR</button>
+        <button class="btn-hantar-keseluruhan" onclick="paparSkorKeseluruhan()">🏆 HANTAR SKOR KESELURUHAN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SKOR ZON -->
+<div class="score-modal" id="scoreModal">
+  <div class="modal-box">
+    <div style="font-size: clamp(3rem, 8vw, 4.5rem);" id="modalIcon">🎉</div>
+    <h2 id="modalTitle" style="color: #1E3A8A; margin: 0; font-size: clamp(1.3rem, 3.5vw, 1.8rem);">KEPUTUSAN MISI</h2>
+    <p id="modalMsg" style="font-size: clamp(0.95rem, 2.2vw, 1.15rem); color: #4B5563; margin-top: 6px;">Syabas wira cilik BARSA!</p>
+    
+    <div class="modal-score">
+      Skor: <span id="zoneScoreText">0/10</span> ⭐
+    </div>
+    <p style="font-weight: bold; color: #6D28D9; margin: 4px 0 12px 0; font-size: clamp(0.9rem, 2vw, 1.1rem);">Jumlah Keseluruhan Bintang: <span id="grandScoreText">0</span> ⭐</p>
+
+    <button class="btn-modal-next" onclick="tutupModalDanLanjut()">SETERUSNYA ➡️</button>
+  </div>
+</div>
+
+<!-- MODAL SKOR KESELURUHAN -->
+<div class="score-modal" id="grandScoreModal">
+  <div class="grand-modal-box">
+    <img src="https://res.cloudinary.com/mtekljwt/image/upload/v1791417684/logo_transparent_p7ivod.png" style="width: 75px; height: 75px; object-fit: contain; margin-bottom: 4px;" alt="Logo BARSA">
+    <h2 style="color: #1E3A8A; margin: 4px 0 0 0; font-size: clamp(1.3rem, 3.5vw, 1.7rem);">SIJIL TAMAT KEMBARA WIRA CILIK</h2>
+    <p style="color: #854D0E; font-weight: 900; margin: 4px 0; font-size: clamp(0.85rem, 2vw, 1rem);">Kelas Cikgu Izyanti BARSA (SK Bandar Seri Alam)</p>
+    
+    <div style="background: white; border: 2px solid #E2E8F0; border-radius: 12px; padding: 10px; margin: 12px 0;">
+      <p style="margin: 0; font-size: clamp(1rem, 2.3vw, 1.2rem);">Wira: <strong id="grandNamaDisplay" style="color: #2563EB;">-</strong> | Kelas: <strong id="grandKelasDisplay" style="color: #D97706;">-</strong></p>
+    </div>
+
+    <table class="grand-table">
+      <thead>
+        <tr>
+          <th>Zon Misi Pengembaraan</th>
+          <th>Markah Diperoleh</th>
+        </tr>
+      </thead>
+      <tbody id="grandScoreTableBody">
+      </tbody>
+    </table>
+
+    <div class="grand-total-box">
+      JUMLAH BINTANG: <span id="grandTotalStarsDisplay">0</span> / 80 ⭐
+    </div>
+
+    <p style="font-weight: bold; color: #059669; font-size: clamp(0.95rem, 2.2vw, 1.15rem); margin-bottom: 16px;">
+      🌟 Tahniah atas kejayaan anda menamatkan semua misi! 🌟
+    </p>
+
+    <button class="btn-adventure" onclick="tutupGrandModal()">Tutup ❌</button>
+  </div>
+</div>
+
+<script>
+// ==========================================
+// AUDIO SYNTHESIZER
+// ==========================================
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+function playSound(type) {
+  try {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    if (type === 'slice') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.12);
+      gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.15);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.15);
+    } else if (type === 'correct') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(783.99, audioCtx.currentTime + 0.15);
+      gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.25);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    } else if (type === 'wrong') {
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+      osc.frequency.linearRampToValueAtTime(140, audioCtx.currentTime + 0.2);
+      gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+      gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.25);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    } else if (type === 'fanfare') {
+      [440, 554, 659, 880].forEach((freq, idx) => {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g);
+        g.connect(audioCtx.destination);
+        o.frequency.value = freq;
+        g.gain.setValueAtTime(0.2, audioCtx.currentTime + idx * 0.1);
+        g.gain.linearRampToValueAtTime(0, audioCtx.currentTime + idx * 0.1 + 0.25);
+        o.start(audioCtx.currentTime + idx * 0.1);
+        o.stop(audioCtx.currentTime + idx * 0.1 + 0.25);
+      });
+    }
+  } catch(e) {}
+}
+
+// RAWAK KIRI, TENGAH, KANAN
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// ==========================================
+// BANK SOALAN
+// ==========================================
+
+// BM 1: KVKV
+const bmKVKV = [
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/BUKU_nhgzmi.avif", q: "1. b u _ _", opts: ["k u", "t u", "s u"], a: "k u" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/BOLA_exybtm.webp", q: "2. b o _ _", opts: ["l a", "m a", "p a"], a: "l a" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416717/mata_eojbtj.jpg", q: "3. m a _ _", opts: ["t a", "k a", "g a"], a: "t a" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416796/lori_fxwxhd.webp", q: "4. l o _ _", opts: ["r i", "b i", "s i"], a: "r i" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416875/topi_bwpn6s.jpg", q: "5. t o _ _", opts: ["p i", "j i", "k i"], a: "p i" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416891/gigi_iaiwhx.png", q: "6. g i _ _", opts: ["g i", "n i", "s i"], a: "g i" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791417000/meja_nlraoq.webp", q: "7. m e _ _", opts: ["j a", "b a", "k a"], a: "j a" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/susu_agq68n.webp", q: "8. s u _ _", opts: ["s u", "t u", "k u"], a: "s u" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/kuda_yxsbdo.jpg", q: "9. k u _ _", opts: ["d a", "l a", "n a"], a: "d a" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/roti_rdgptx.avif", q: "10. r o _ _", opts: ["t i", "c i", "g i"], a: "t i" }
+];
+
+// BM 2: KATA TERTUTUP
+const bmTertutupBergambar = [
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/bas_qjtic4.avif", q: "Misi 1: Pilih perkataan bagi gambar ini:", opts: ["bas", "beg", "bot"], a: "bas" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/jam_m2imtu.avif", q: "Misi 2: Pilih perkataan bagi gambar ini:", opts: ["jam", "gam", "cat"], a: "jam" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/bag_ml8mhu.jpg", q: "Misi 3: Pilih perkataan bagi gambar ini:", opts: ["beg", "pin", "tin"], a: "beg" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/kasut_e566k2.jpg", q: "Misi 4: Pilih perkataan bagi gambar ini:", opts: ["kasut", "katil", "kapur"], a: "kasut" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/pintu_nxecuz.webp", q: "Misi 5: Pilih perkataan bagi gambar ini:", opts: ["pintu", "pinggan", "pisau"], a: "pintu" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/cawan_ejzcwj.avif", q: "Misi 6: Pilih perkataan bagi gambar ini:", opts: ["cawan", "cili", "cermin"], a: "cawan" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/botol_s7hkna.jpg", q: "Misi 7: Pilih perkataan bagi gambar ini:", opts: ["botol", "bakul", "bantal"], a: "botol" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/kapal_vsgxdm.jpg", q: "Misi 8: Pilih perkataan bagi gambar ini:", opts: ["kapal", "kipas", "katak"], a: "kapal" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/pen_dm2tl6.jpg", q: "Misi 9: Pilih perkataan bagi gambar ini:", opts: ["pen", "pan", "pin"], a: "pen" },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/bakul_aaqmf1.png", q: "Misi 10: Pilih perkataan bagi gambar ini:", opts: ["bakul", "biskut", "badak"], a: "bakul" }
+];
+
+// BM 3: GUA KVKK
+const bmKVKKPadanan = [
+  { no: 1, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416245/wang_cvstdb.jpg", s1: "wa", opts: ["ng", "nk", "mp"], a: "ng", full: "wang" },
+  { no: 2, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416245/tong_po9gol.avif", s1: "to", opts: ["ng", "rk", "lt"], a: "ng", full: "tong" },
+  { no: 3, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/gong_kghmm4.png", s1: "go", opts: ["ng", "nk", "nd"], a: "ng", full: "gong" },
+  { no: 4, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/bank_hzrkxa.jpg", s1: "ba", opts: ["nk", "ng", "mp"], a: "nk", full: "bank" },
+  { no: 5, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/pisang_llkdpc.jpg", s1: "pi", opts: ["sang", "tang", "pang"], a: "sang", full: "pisang" },
+  { no: 6, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416241/hidung_cn5pxt.webp", s1: "hi", opts: ["dung", "tung", "lung"], a: "dung", full: "hidung" },
+  { no: 7, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/payung_ezmomv.jpg", s1: "pa", opts: ["yung", "pung", "sung"], a: "yung", full: "payung" },
+  { no: 8, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791418092/sarang_or8jdo.webp", s1: "sa", opts: ["rang", "bang", "tang"], a: "rang", full: "sarang" },
+  { no: 9, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416242/kacang_s6sm5p.jpg", s1: "ka", opts: ["cang", "dang", "mang"], a: "cang", full: "kacang" },
+  { no: 10, img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416245/zink_szq5qo.webp", s1: "zi", opts: ["nk", "ng", "nt"], a: "nk", full: "zink" }
+];
+
+// BM 4: DATA AIR SLICE DIFTONG
+const dataDiftongSlice = [
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416245/tupai_wqjsvq.jpg", prefix: "t u p ", correct: "ai", full: "TUPAI", bubbles: ["ai", "au", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/kerbau_uydklf.png", prefix: "k e r b ", correct: "au", full: "KERBAU", bubbles: ["au", "ai", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/pisau_jrtwyj.jpg", prefix: "p i s ", correct: "au", full: "PISAU", bubbles: ["au", "ai", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/limau_j3xyfs.jpg", prefix: "l i m ", correct: "au", full: "LIMAU", bubbles: ["ai", "au", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/rantai_qw0w9m.jpg", prefix: "r a n t ", correct: "ai", full: "RANTAI", bubbles: ["ai", "au", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/pulau_qhlsvn.jpg", prefix: "p u l ", correct: "au", full: "PULAU", bubbles: ["au", "ai", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416245/surau_itifxl.jpg", prefix: "s u r ", correct: "au", full: "SURAU", bubbles: ["ai", "au", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/dodoi_it3jp3.jpg", prefix: "d o d ", correct: "oi", full: "DODOI", bubbles: ["oi", "ai", "au"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416244/tapai_eegnx1.png", prefix: "t a p ", correct: "ai", full: "TAPAI", bubbles: ["ai", "au", "oi"] },
+  { img: "https://res.cloudinary.com/mtekljwt/image/upload/v1791416243/koboi_leuqhl.jpg", prefix: "k o b ", correct: "oi", full: "KOBOI", bubbles: ["oi", "ai", "au"] }
+];
+
+// BM 5: PEMAHAMAN
+const bmCerita = [
+  { q: "1. Siapakah pemilik kucing comel ini?", opts: ["Pak Ali", "Pak Abu", "Pak Samad"], a: "Pak Ali" },
+  { q: "2. Apakah nama kucing tersebut?", opts: ["Si Comel", "Si Belang", "Si Hitam"], a: "Si Comel" },
+  { q: "3. Apakah warna bulu Si Comel?", opts: ["Putih", "Kuning", "Kelabu"], a: "Putih" },
+  { q: "4. Apakah makanan kegemaran Si Comel?", opts: ["Ikan goreng", "Ayam rebus", "Sayur bayam"], a: "Ikan goreng" },
+  { q: "5. Si Comel gemar bermain apa pada waktu petang?", opts: ["Bola getah", "Tikus mainan", "Kupu-kupu"], a: "Bola getah" }
+];
+
+// BM 6: SUSUN AYAT
+const bmSusun = [
+  { words: ["Saya", "minum", "susu."], correct: "Saya minum susu." },
+  { words: ["Ibu", "jahit", "baju."], correct: "Ibu jahit baju." },
+  { words: ["Ali", "sepak", "bola."], correct: "Ali sepak bola." },
+  { words: ["Kakak", "baca", "buku."], correct: "Kakak baca buku." },
+  { words: ["Kucing", "makan", "ikan."], correct: "Kucing makan ikan." }
+];
+
+// MATH 1: KENAL NOMBOR
+const mathNombor = [
+  { q: "1. Lengkapkan urutan nombor: 11, 12, ❓, 14", opts: ["13", "15", "10"], a: "13" },
+  { q: "2. Kira bilangan bintang ini: ⭐⭐⭐⭐⭐⭐⭐⭐", opts: ["8", "7", "9"], a: "8" },
+  { q: "3. Apakah nombor sejurus SELEPAS 29?", opts: ["30", "28", "31"], a: "30" },
+  { q: "4. Apakah nombor SEBELUM 45?", opts: ["44", "46", "43"], a: "44" },
+  { q: "5. 'Tiga puluh dua' ditulis dalam angka ialah:", opts: ["32", "23", "302"], a: "32" },
+  { q: "6. Nombor '48' dieja dalam perkataan sebagai:", opts: ["Empat puluh lapan", "Lapan puluh empat", "Empat belas"], a: "Empat puluh lapan" },
+  { q: "7. Antara nombor berikut, mana nilai paling BESAR?", opts: ["49", "38", "25"], a: "49" },
+  { q: "8. Bilang lima-lima: 15, 20, 25, ❓", opts: ["30", "35", "26"], a: "30" },
+  { q: "9. Dalam nombor 37, digit 3 berada pada nilai tempat:", opts: ["Puluh", "Sa", "Ratus"], a: "Puluh" },
+  { q: "10. Nombor paling KECIL antara pilihan di bawah ialah:", opts: ["7", "21", "34"], a: "7" }
+];
+
+// MATH 2: TAMBAH
+const mathTambah = [
+  { q: "1. 4 + 3 = ❓", opts: ["7", "6", "8"], a: "7" },
+  { q: "2. 10 + 5 = ❓", opts: ["15", "14", "16"], a: "15" },
+  { q: "3. 12 + 6 = ❓", opts: ["18", "17", "19"], a: "18" },
+  { q: "4. 20 + 10 = ❓", opts: ["30", "25", "40"], a: "30" },
+  { q: "5. 24 + 5 = ❓", opts: ["29", "28", "30"], a: "29" },
+  { q: "6. 31 + 7 = ❓", opts: ["38", "37", "39"], a: "38" },
+  { q: "7. 25 + 13 = ❓", opts: ["38", "37", "48"], a: "38" },
+  { q: "8. 40 + 9 = ❓", opts: ["49", "48", "50"], a: "49" },
+  { q: "9. 33 + 14 = ❓", opts: ["47", "46", "48"], a: "47" },
+  { q: "10. 22 + 22 = ❓", opts: ["44", "42", "40"], a: "44" }
+];
+
+// MATH 3: TOLAK
+const mathTolak = [
+  { q: "1. 9 - 4 = ❓", opts: ["5", "4", "6"], a: "5" },
+  { q: "2. 10 - 6 = ❓", opts: ["4", "3", "5"], a: "4" },
+  { q: "3. 16 - 6 = ❓", opts: ["10", "12", "9"], a: "10" },
+  { q: "4. 20 - 5 = ❓", opts: ["15", "14", "16"], a: "15" },
+  { q: "5. 27 - 4 = ❓", opts: ["23", "22", "24"], a: "23" },
+  { q: "6. 35 - 10 = ❓", opts: ["25", "20", "30"], a: "25" },
+  { q: "7. 46 - 3 = ❓", opts: ["43", "42", "44"], a: "43" },
+  { q: "8. 38 - 14 = ❓", opts: ["24", "22", "25"], a: "24" },
+  { q: "9. 50 - 20 = ❓", opts: ["30", "25", "35"], a: "30" },
+  { q: "10. 48 - 13 = ❓", opts: ["35", "34", "36"], a: "35" }
+];
+
+// ==========================================
+// STATE & SKOR
+// ==========================================
+let namaWira = "";
+let kelasWira = "";
+let jumlahBintang = 0;
+let currentActiveZon = "bm0";
+
+const skorZon = {
+  bm0: { skor: 0, total: 10, nama: "Lembah KVKV", dijawab: 0 },
+  bm1: { skor: 0, total: 10, nama: "Rimba Kata Tertutup", dijawab: 0 },
+  bm2: { skor: 0, total: 10, nama: "Gua Padanan KVKK", dijawab: 0 },
+  bm3: { skor: 0, total: 10, nama: "Air Slice Diftong", dijawab: 0 },
+  bm4: { skor: 0, total: 5, nama: "Istana Cerita", dijawab: 0 },
+  bm5: { skor: 0, total: 5, nama: "Jambatan Susun Ayat", dijawab: 0 },
+  math0: { skor: 0, total: 10, nama: "Bukit Nombor Hingga 50", dijawab: 0 },
+  math1: { skor: 0, total: 10, nama: "Air Terjun Menambah", dijawab: 0 },
+  math2: { skor: 0, total: 10, nama: "Puncak Menolak", dijawab: 0 }
+};
+
+function dapatkanSkorZon(kodZon) {
+  if (skorZon && skorZon[kodZon]) {
+    return `${skorZon[kodZon].skor} / ${skorZon[kodZon].total} ⭐`;
+  }
+  return "Selesai";
+}
+
+function daftarWira() {
+  const n = document.getElementById('namaInput').value.trim();
+  const k = document.getElementById('kelasInput').value.trim();
+
+  if (!n || !k) {
+    alert("⚠️ Sila tulis Nama dan Kelas anda terlebih dahulu!");
+    return;
+  }
+
+  namaWira = n;
+  kelasWira = k;
+  document.getElementById('badgePengembara').innerHTML = `Wira: <strong>${namaWira}</strong> (${kelasWira}) | ⭐ <span id="starDisplay">0</span>`;
+  playSound('fanfare');
+  bukaTabUtama('tab-bm');
+}
+
+function bukaTabUtama(tabId) {
+  if (tabId !== 'tab-profil' && !namaWira) {
+    alert("Sila isi pasport anda di tab Profil terlebih dahulu!");
+    return;
+  }
+
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+  const activeBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+  if (activeBtn) activeBtn.classList.add('active');
+
+  document.getElementById(tabId).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (tabId === 'tab-bm') {
+    setTimeout(resizeSliceCanvas, 150);
+  }
+}
+
+function tukarZonBM(idx) {
+  currentActiveZon = `bm${idx}`;
+  const btns = document.querySelectorAll('#tab-bm .zone-btn');
+  btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+  for (let i = 0; i <= 5; i++) {
+    document.getElementById(`bm-zon-${i}`).classList.toggle('active', i === idx);
+  }
+  if (idx === 3) {
+    setTimeout(resizeSliceCanvas, 100);
+  }
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+function tukarZonMath(idx) {
+  currentActiveZon = `math${idx}`;
+  const btns = document.querySelectorAll('#tab-math .zone-btn');
+  btns.forEach((b, i) => b.classList.toggle('active', i === idx));
+  for (let i = 0; i <= 2; i++) {
+    document.getElementById(`math-zon-${i}`).classList.toggle('active', i === idx);
+  }
+  window.scrollTo({ top: 120, behavior: 'smooth' });
+}
+
+function misiSeterusnya(currentKey) {
+  const urutan = ['bm0', 'bm1', 'bm2', 'bm3', 'bm4', 'bm5', 'math0', 'math1', 'math2'];
+  const indeks = urutan.indexOf(currentKey);
+
+  if (indeks === -1) return;
+
+  if (indeks < urutan.length - 1) {
+    const nextKey = urutan[indeks + 1];
+    bukaZonTertentu(nextKey);
+  } else {
+    paparSkorKeseluruhan();
+  }
+}
+
+function bukaZonTertentu(zonKey) {
+  if (zonKey.startsWith('bm')) {
+    bukaTabUtama('tab-bm');
+    const idx = parseInt(zonKey.replace('bm', ''));
+    tukarZonBM(idx);
+  } else if (zonKey.startsWith('math')) {
+    bukaTabUtama('tab-math');
+    const idx = parseInt(zonKey.replace('math', ''));
+    tukarZonMath(idx);
+  }
+}
+
+// BINA SOALAN BERGANDA RAWAK
+function binaMCQ(containerId, dataList, zonKey) {
+  const box = document.getElementById(containerId);
+  box.innerHTML = "";
+
+  dataList.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+
+    if (item.img) {
+      const img = document.createElement("img");
+      img.src = item.img;
+      img.className = "q-img";
+      img.alt = item.q;
+      card.appendChild(img);
+    }
+
+    const title = document.createElement("div");
+    title.className = "q-title";
+    title.innerText = item.q;
+    card.appendChild(title);
+
+    const grid = document.createElement("div");
+    grid.className = "options-grid";
+
+    const pilihanRawak = shuffleArray(item.opts);
+
+    pilihanRawak.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "opt-btn";
+      btn.innerText = opt;
+      btn.onclick = () => semakJawapan(btn, opt, item.a, zonKey);
+      grid.appendChild(btn);
+    });
+
+    card.appendChild(grid);
+    box.appendChild(card);
+  });
+}
+
+// BINA PADANAN KVKK
+function binaPadananKVKK() {
+  const box = document.getElementById("bm-kvkk-box");
+  box.innerHTML = "";
+
+  bmKVKKPadanan.forEach((item, idx) => {
+    const card = document.createElement("div");
+    card.className = "q-card matching-box";
+
+    card.innerHTML = `
+      <img src="${item.img}" class="q-img" alt="${item.full}">
+      <div class="q-title">Misi ${item.no}: Cantumkan suku kata bagi gambar ini</div>
+      <div class="syllable-display">
+        <div class="first-syllable">${item.s1}</div>
+        <div style="font-size: 1.5rem; color: #D97706;">+</div>
+        <div class="target-slot" id="slot-kvkk-${idx}">?</div>
+        <div style="font-size: 1.5rem; color: #D97706;">=</div>
+        <div style="font-size: 1.4rem; font-weight: 900; color: #1E3A8A;" id="result-kvkk-${idx}">...</div>
+      </div>
+    `;
+
+    const grid = document.createElement("div");
+    grid.className = "options-grid";
+
+    const pilihanRawak = shuffleArray(item.opts);
+
+    pilihanRawak.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "opt-btn";
+      btn.innerText = opt;
+      btn.onclick = () => {
+        const parent = btn.parentElement;
+        if (parent.dataset.answered === "true") return;
+        parent.dataset.answered = "true";
+
+        skorZon['bm2'].dijawab++;
+        const slot = document.getElementById(`slot-kvkk-${idx}`);
+        const result = document.getElementById(`result-kvkk-${idx}`);
+
+        if (opt.trim() === item.a.trim()) {
+          btn.classList.add("correct");
+          btn.innerText += " ✅";
+          slot.innerText = opt;
+          slot.classList.add("filled");
+          result.innerText = item.full;
+          playSound('correct');
+          jumlahBintang++;
+          skorZon['bm2'].skor++;
+        } else {
+          btn.classList.add("wrong");
+          btn.innerText += " ❌";
+          slot.innerText = item.a;
+          slot.classList.add("filled");
+          result.innerText = item.full;
+          playSound('wrong');
+          parent.querySelectorAll('.opt-btn').forEach(b => {
+            if (b.innerText === item.a) b.classList.add("correct");
+          });
+        }
+
+        kemaskiniPaparanBintang();
+      };
+      grid.appendChild(btn);
+    });
+
+    card.appendChild(grid);
+    box.appendChild(card);
+  });
+}
+
+// AIR SLICE
+let currentSliceIndex = 0;
+let sliceLocked = false;
+let isSlicing = false;
+let sliceTrail = [];
+
+const sliceCanvas = document.getElementById('sliceCanvas');
+const sliceCtx = sliceCanvas.getContext('2d');
+const sliceArena = document.getElementById('sliceArena');
+
+function resizeSliceCanvas() {
+  if (!sliceArena) return;
+  sliceCanvas.width = sliceArena.clientWidth;
+  sliceCanvas.height = sliceArena.clientHeight;
+}
+window.addEventListener('resize', resizeSliceCanvas);
+
+function muatSoalanSlice(index) {
+  if (index >= dataDiftongSlice.length) {
+    document.getElementById('sliceWordDisplay').innerText = "SEMUA MISI SELESAI! 🎉";
+    document.getElementById('sliceWordDisplay').style.color = "#059669";
+    return;
+  }
+
+  sliceLocked = false;
+  const current = dataDiftongSlice[index];
+
+  document.getElementById('sliceMissionNumber').innerText = `Misi ${index + 1} daripada 10`;
+  document.getElementById('sliceZoneStars').innerText = skorZon['bm3'].skor;
+  document.getElementById('sliceTargetImg').src = current.img;
+  document.getElementById('sliceWordDisplay').innerText = `${current.prefix} _ _`;
+  document.getElementById('sliceWordDisplay').style.color = '#1E3A8A';
+
+  Array.from(sliceArena.querySelectorAll('.water-bubble')).forEach(el => el.remove());
+
+  const shuffledBubbles = shuffleArray(current.bubbles);
+
+  shuffledBubbles.forEach((text) => {
+    const bubble = document.createElement('div');
+    bubble.className = 'water-bubble';
+    bubble.innerText = text;
+    bubble.dataset.val = text;
+
+    bubble.addEventListener('pointerenter', () => {
+      if (isSlicing) handleBubbleSlice(bubble);
+    });
+    bubble.addEventListener('click', () => {
+      handleBubbleSlice(bubble);
+    });
+
+    sliceArena.appendChild(bubble);
+  });
+}
+
+function handleBubbleSlice(bubble) {
+  if (sliceLocked) return;
+
+  const current = dataDiftongSlice[currentSliceIndex];
+  const val = bubble.dataset.val;
+
+  playSound('slice');
+
+  if (val === current.correct) {
+    sliceLocked = true;
+    bubble.classList.add('sliced-correct');
+    playSound('correct');
+
+    document.getElementById('sliceWordDisplay').innerText = current.full + " ✅";
+    document.getElementById('sliceWordDisplay').style.color = "#059669";
+
+    jumlahBintang++;
+    skorZon['bm3'].skor++;
+    skorZon['bm3'].dijawab++;
+    kemaskiniPaparanBintang();
+    document.getElementById('sliceZoneStars').innerText = skorZon['bm3'].skor;
+
+    setTimeout(() => {
+      currentSliceIndex++;
+      muatSoalanSlice(currentSliceIndex);
+    }, 1200);
+
+  } else {
+    bubble.classList.add('sliced-wrong');
+    playSound('wrong');
+    setTimeout(() => {
+      bubble.classList.remove('sliced-wrong');
+    }, 500);
+  }
+}
+
+// SLICE GESTURE
+sliceArena.addEventListener('pointerdown', (e) => {
+  isSlicing = true;
+  sliceTrail = [{ x: e.offsetX, y: e.offsetY }];
+});
+
+sliceArena.addEventListener('pointermove', (e) => {
+  if (!isSlicing) return;
+  const pt = { x: e.offsetX, y: e.offsetY };
+  sliceTrail.push(pt);
+  if (sliceTrail.length > 8) sliceTrail.shift();
+  drawSliceBlade();
+
+  const elements = document.elementsFromPoint(e.clientX, e.clientY);
+  elements.forEach(el => {
+    if (el && el.classList.contains('water-bubble')) {
+      handleBubbleSlice(el);
+    }
+  });
+});
+
+window.addEventListener('pointerup', () => {
+  isSlicing = false;
+  sliceTrail = [];
+  sliceCtx.clearRect(0, 0, sliceCanvas.width, sliceCanvas.height);
+});
+
+function drawSliceBlade() {
+  sliceCtx.clearRect(0, 0, sliceCanvas.width, sliceCanvas.height);
+  if (sliceTrail.length < 2) return;
+
+  sliceCtx.beginPath();
+  sliceCtx.moveTo(sliceTrail[0].x, sliceTrail[0].y);
+  for (let i = 1; i < sliceTrail.length; i++) {
+    sliceCtx.lineTo(sliceTrail[i].x, sliceTrail[i].y);
+  }
+  sliceCtx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+  sliceCtx.lineWidth = 6;
+  sliceCtx.lineCap = 'round';
+  sliceCtx.shadowColor = '#38BDF8';
+  sliceCtx.shadowBlur = 10;
+  sliceCtx.stroke();
+}
+
+// SEMAK JAWAPAN
+function semakJawapan(btn, pilihan, jawapanBetul, zonKey) {
+  const parent = btn.parentElement;
+  if (parent.dataset.answered === "true") return;
+
+  parent.dataset.answered = "true";
+  skorZon[zonKey].dijawab++;
+
+  if (pilihan.trim() === jawapanBetul.trim()) {
+    btn.classList.add("correct");
+    btn.innerText += " ✅";
+    playSound('correct');
+    jumlahBintang++;
+    skorZon[zonKey].skor++;
+  } else {
+    btn.classList.add("wrong");
+    btn.innerText += " ❌";
+    playSound('wrong');
+    parent.querySelectorAll('.opt-btn').forEach(b => {
+      if (b.innerText === jawapanBetul) b.classList.add("correct");
+    });
+  }
+
+  kemaskiniPaparanBintang();
+}
+
+function kemaskiniPaparanBintang() {
+  const el = document.getElementById("starDisplay");
+  if (el) el.innerText = jumlahBintang;
+}
+
+// SUSUN AYAT
+function binaSusunAyat() {
+  const box = document.getElementById("bm-susun-box");
+  box.innerHTML = "";
+
+  bmSusun.forEach((item, idx) => {
+    const card = document.createElement("div");
+    card.className = "q-card";
+
+    card.innerHTML = `<div class="q-title">Misi ${idx + 1}: Susun perkataan supaya menjadi ayat lengkap</div>`;
+
+    const dropArea = document.createElement("div");
+    dropArea.className = "drop-area";
+    dropArea.id = `drop-${idx}`;
+
+    const pool = document.createElement("div");
+    pool.className = "word-pool";
+
+    const rawak = shuffleArray(item.words);
+
+    rawak.forEach(kata => {
+      const chip = document.createElement("div");
+      chip.className = "word-chip";
+      chip.innerText = kata;
+      chip.onclick = () => {
+        if (chip.parentElement === pool) {
+          dropArea.appendChild(chip);
+        } else {
+          pool.appendChild(chip);
+        }
+      };
+      pool.appendChild(chip);
+    });
+
+    const btnSemak = document.createElement("button");
+    btnSemak.className = "btn-semak";
+    btnSemak.innerText = "Semak Ayat 🔍";
+    btnSemak.onclick = () => {
+      if (btnSemak.dataset.selesai === "true") return;
+
+      const perkataanTersusun = Array.from(dropArea.children).map(c => c.innerText).join(" ");
+      if (perkataanTersusun === item.correct) {
+        playSound('correct');
+        dropArea.style.borderColor = "#10B981";
+        dropArea.style.background = "#DCFCE7";
+        btnSemak.innerText = "Tepat Sekali! 🎉";
+        btnSemak.style.background = "#10B981";
+        btnSemak.dataset.selesai = "true";
+        jumlahBintang++;
+        skorZon['bm5'].skor++;
+        skorZon['bm5'].dijawab++;
+        kemaskiniPaparanBintang();
+      } else {
+        playSound('wrong');
+        alert("Susunan belum tepat lagi. Klik perkataan untuk ubah semula ya wira! 😊");
+      }
+    };
+
+    card.appendChild(dropArea);
+    card.appendChild(pool);
+    card.appendChild(btnSemak);
+    box.appendChild(card);
+  });
+}
+
+// MODAL SKOR ZON
+function paparSkorZonModal(zonKey) {
+  playSound('fanfare');
+  const z = skorZon[zonKey];
+  document.getElementById("modalTitle").innerText = `KEPUTUSAN: ${z.nama.toUpperCase()}`;
+  document.getElementById("modalMsg").innerText = `Wira: ${namaWira || '-'} (${kelasWira || '-'})`;
+  document.getElementById("zoneScoreText").innerText = `${z.skor} / ${z.total}`;
+  document.getElementById("grandScoreText").innerText = jumlahBintang;
+  document.getElementById("scoreModal").style.display = "flex";
+}
+
+function tutupModalDanLanjut() {
+  document.getElementById("scoreModal").style.display = "none";
+  misiSeterusnya(currentActiveZon);
+}
+
+// SKOR KESELURUHAN
+function paparSkorKeseluruhan() {
+  playSound('fanfare');
+  document.getElementById("grandNamaDisplay").innerText = namaWira || 'Wira Cilik';
+  document.getElementById("grandKelasDisplay").innerText = kelasWira || 'Pemulihan';
+  document.getElementById("grandTotalStarsDisplay").innerText = jumlahBintang;
+
+  const tbody = document.getElementById("grandScoreTableBody");
+  tbody.innerHTML = "";
+
+  const senaraiKunci = ['bm0', 'bm1', 'bm2', 'bm3', 'bm4', 'bm5', 'math0', 'math1', 'math2'];
+
+  senaraiKunci.forEach(key => {
+    const item = skorZon[key];
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td style="text-align: left;">${item.nama}</td>
+      <td style="color: #D97706;">${item.skor} / ${item.total} ⭐</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("grandScoreModal").style.display = "flex";
+
+  if (typeof hantarSkorKeseluruhan === 'function') {
+    hantarSkorKeseluruhan();
+  }
+}
+
+function tutupGrandModal() {
+  document.getElementById("grandScoreModal").style.display = "none";
+}
+
+// INISIALISASI
+window.onload = function() {
+  binaMCQ("bm-kvkv-box", bmKVKV, 'bm0');
+  binaMCQ("bm-tertutup-box", bmTertutupBergambar, 'bm1');
+  binaPadananKVKK();
+  muatSoalanSlice(0);
+  binaMCQ("bm-cerita-box", bmCerita, 'bm4');
+  binaSusunAyat();
+
+  binaMCQ("math-nombor-box", mathNombor, 'math0');
+  binaMCQ("math-tambah-box", mathTambah, 'math1');
+  binaMCQ("math-tolak-box", mathTolak, 'math2');
+
+  setTimeout(resizeSliceCanvas, 300);
+};
+
+// ==========================================
+// INTEGRASI GOOGLE APPS SCRIPT
+// ==========================================
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyudzTRnDEp_zA5SVQHoe-6p35z2vAv_7N1UlIXq_eCl9CLnfgDpivhxozd--X_XZ81/exec";
+
+const namaZonMap = {
+  'bm0': 'BM Zon 1: Lembah KVKV',
+  'bm1': 'BM Zon 2: Rimba Kata Tertutup',
+  'bm2': 'BM Zon 3: Gua KVKK',
+  'bm3': 'BM Zon 4: Air Slice Diftong',
+  'bm4': 'BM Zon 5: Istana Cerita',
+  'bm5': 'BM Zon 6: Jambatan Ayat',
+  'math0': 'Math Zon 1: Bukit Nombor 1-50',
+  'math1': 'Math Zon 2: Air Terjun Tambah',
+  'math2': 'Math Zon 3: Puncak Tolak'
+};
+
+function hantarSkorMisi(kodZon) {
+  const nama = document.getElementById('namaInput').value.trim();
+  const kelas = document.getElementById('kelasInput').value.trim();
+
+  if (!nama || !kelas) {
+    alert("⚠️ Sila isi Nama dan Kelas di Pasport Pengembara dahulu!");
+    if (typeof bukaTabUtama === 'function') bukaTabUtama('tab-profil');
+    return;
+  }
+
+  currentActiveZon = kodZon;
+
+  let markah = "Selesai";
+  if (typeof dapatkanSkorZon === 'function') {
+    markah = dapatkanSkorZon(kodZon);
+  } else if (typeof skorZonMap !== 'undefined' && skorZonMap[kodZon] !== undefined) {
+    markah = skorZonMap[kodZon];
+  }
+
+  const labelZon = namaZonMap[kodZon] || kodZon;
+
+  const dataPayload = {
+    nama: nama,
+    kelas: kelas,
+    zon: labelZon,
+    skor: markah
+  };
+
+  fetch(WEB_APP_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(dataPayload)
+  })
+  .then(() => {
+    alert(`✅ Syabas ${nama}! Skor bagi ${labelZon} telah berjaya dihantar ke Google Sheets.`);
+  })
+  .catch(error => {
+    console.error("Ralat:", error);
+    alert("❌ Gagal menghantar skor. Sila semak sambungan internet.");
+  });
+
+  paparSkorZonModal(kodZon);
+}
+
+function hantarSkorKeseluruhan() {
+  const nama = document.getElementById('namaInput').value.trim();
+  const kelas = document.getElementById('kelasInput').value.trim();
+
+  if (!nama || !kelas) return;
+
+  const elemTotal = document.getElementById('grandTotalStarsDisplay');
+  const bintangTerkumpul = elemTotal ? elemTotal.innerText : `${jumlahBintang}`;
+
+  const dataPayload = {
+    nama: nama,
+    kelas: kelas,
+    zon: "JUMLAH KESELURUHAN",
+    skor: `${bintangTerkumpul} / 80 ⭐`
+  };
+
+  fetch(WEB_APP_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(dataPayload)
+  });
+}
+</script>
+
+</body>
+</html>
